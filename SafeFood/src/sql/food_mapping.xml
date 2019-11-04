@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL구문의 재사용성 1)sql 2)include -->
+<mapper namespace="FoodMapper">
+	<!-- <resultMap type="user" id="userSelectRM"> <result property="userId" 
+		column="user_id" /> <result property="userName" column="user_name" /> <result 
+		property="password" column="password" /> <result property="age" column="age" 
+		/> <result property="grade" column="grade" /> <result property="regDate" 
+		column="reg_date" /> </resultMap> -->
+
+	<sql id="select-foods">
+		SELECT
+		code,name,supportpereat,calory,carbo,protein,fat,sugar,natrium,chole,fattyacid,transfat,bgnyear,maker,material,img,allergy,category
+		FROM
+		food
+	</sql>
+
+	<sql id="orderby-code-desc">
+		ORDER BY code DESC;
+	</sql>
+
+	<select id="searchFoodByCode" parameterType="int"
+		resultType="food">
+		<include refid="select-foods"></include>
+		WHERE code=#{value}
+		<include refid="orderby-code-desc" />
+	</select>
+
+	<select id="searchFoodByName" parameterType="string"
+		resultType="food">
+		<include refid="select-foods"></include>
+		WHERE name=#{value}
+		<include refid="orderby-code-desc" />
+	</select>
+
+	<select id="searchFoodsByCategory" parameterType="string"
+		resultType="food">
+		<include refid="select-foods"></include>
+		WHERE category LIKE '%${value}%'
+		<include refid="orderby-code-desc" />
+	</select>
+
+	<select id="searchFoodsByName" parameterType="string"
+		resultType="food">
+		<include refid="select-foods"></include>
+		WHERE name LIKE '%${value}%'
+		<include refid="orderby-code-desc" />
+	</select>
+
+	<select id="searchFoodsByMaterial" parameterType="string"
+		resultType="food">
+		<include refid="select-foods"></include>
+		WHERE material LIKE '%${value}%'
+		<include refid="orderby-code-desc" />
+	</select>
+
+	<select id="searchFoodsByMaker" parameterType="string"
+		resultType="food">
+		<include refid="select-foods"></include>
+		WHERE maker LIKE '%${value}%'
+		<include refid="orderby-code-desc" />
+	</select>
+
+	<select id="search" resultType="food">
+		<include refid="select-foods" />
+		<include refid="orderby-code-desc" />
+	</select>
+
+</mapper>

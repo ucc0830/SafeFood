@@ -1,0 +1,44 @@
+.banner-bg-main {
+	background: rgba(0,0,0,0.4);
+}
+
+.font-weight-normal {
+	color: white;
+}
+
+.nav-item{
+	font-weight: bold;
+	margin-right: 6px;
+	padding-right: 12px;
+}
+
+.card {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.bootstrap-select {
+    width:auto;
+	background-color: #353b48;
+    border-radius: 30px;
+	border-style:hidden;
+    color: white;
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+  width:auto;
+}
+
+.bootstrap-select > .dropdown-toggle {
+  width: 100%;
+  background-color: #353b48;
+  border-radius: 30px;
+}
+
+.logoutfont{
+	margin-right: 10px;
+	background-color: black;
+	color: white;
+}
