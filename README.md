@@ -1,2 +1,2 @@
 # SafeFood
-SafeFood_WebProject
+- 안전 먹거리를 제공하는 웹 페이지 구현
